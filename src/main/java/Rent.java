@@ -9,6 +9,8 @@ public class Rent {
         for (int i = 0; i < 10; i++) {
             startRent += startRent / 100 * 8;
         }
+        StringBuilder builder = new StringBuilder();
+        builder.toString();
 
         System.out.println(startRent);
     }
