@@ -6,32 +6,33 @@ package coursera.priorityqueue;
  */
 public class PqClient {
     public static void main(String[] args) {
-        MaxPQ maxPQ = new MaxPQ(14);
-        maxPQ.insert(5);
-        maxPQ.insert(1);
-        maxPQ.insert(5);
-        maxPQ.insert(7);
-        maxPQ.insert(3);
-        maxPQ.insert(8);
-        maxPQ.insert(2);
-        maxPQ.insert(1);
-        maxPQ.insert(34);
-        maxPQ.insert(67);
-        maxPQ.insert(9);
-        maxPQ.insert(12);
-        maxPQ.insert(120);
-        maxPQ.insert(1);
+//        MaxPQ maxPQ = new MaxPQ(14);
+//        MinimumAverageWaitingTime.MinPQ maxPQ = new MinimumAverageWaitingTime.MinPQ();
+//        maxPQ.insert(5);
+//        maxPQ.insert(1);
+//        maxPQ.insert(5);
+//        maxPQ.insert(7);
+//        maxPQ.insert(3);
+//        maxPQ.insert(8);
+//        maxPQ.insert(2);
+//        maxPQ.insert(1);
+//        maxPQ.insert(34);
+//        maxPQ.insert(67);
+//        maxPQ.insert(9);
+//        maxPQ.insert(12);
+//        maxPQ.insert(120);
+//        maxPQ.insert(1);
 
 //        for (Integer a : maxPQ.pq){
 //            System.out.print(a + " ");
+////        }
+//        while (!maxPQ.isEmpty()) {
+//            System.out.print(maxPQ.delMin() + " ");
 //        }
-        while (!maxPQ.isEmpty()) {
-            System.out.print(maxPQ.delMax() + " ");
-        }
 
 //        int[] arr = new int[]{0, 1, 3, 5, 4, 6, 12, 10 };
-        int[] arr = new int[]{0, 10, 9, 8, 7, 6, 5, 4 };
-        isMaxHeap(arr);
+//        int[] arr = new int[]{0, 10, 9, 8, 7, 6, 5, 4 };
+//        isMaxHeap(arr);
 
 
     }
