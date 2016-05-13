@@ -6,19 +6,36 @@ package coursera.elementarytable;
  */
 public class BinarySearchTree {
 
+    public static boolean RED = true;
+    public static boolean BLACK = false;
+
+    private Node root = null;
+
     private class Node {
-        Comparable data;
+        Integer data;
         Node left;
         Node right;
+        boolean color;
+    }
 
-        public Node(Comparable data){
-            this.data = data;
-            left = right = null;
+    public void publicInsert(Integer data){
+        this.root = insert(root, data);
+    }
+
+    private Node insert(Node root, int data){
+        if (root == null){
+            Node node = new Node();
+            node.data = data;
+            node.color = RED;
+            return node;
+
+        }else if(root.data < data){
+            root.right = insert(root.right, data);
+        }else if (root.data > data){
+            root.left = insert(root.left, data);
+        }else {
+            root.data = data;
         }
-
-        public void insert(){
-
-        }
-
+        return root;
     }
 }
