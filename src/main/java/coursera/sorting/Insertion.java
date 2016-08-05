@@ -13,7 +13,9 @@ public class Insertion {
 
         // put smallest element in position to serve as sentinel
         for (int i = N-1; i > 0; i--)
-            if (less(a[i], a[i-1])) exch(a, i, i-1);
+            if (less(a[i], a[i-1])){
+                exch(a, i, i-1);
+            }
 
         // insertion sort with half-exchanges
         for (int i = 2; i < N; i++) {

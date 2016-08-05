@@ -203,7 +203,7 @@ public class Selection {
         Insertion insertion = new Insertion();
 
         start = System.currentTimeMillis();
-        insertion.sortX(arr2);
+        insertion.sort(arr2);
         System.out.println(System.currentTimeMillis() - start);
 
         System.out.println("s exch " + exch);

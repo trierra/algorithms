@@ -8,25 +8,18 @@ import java.util.LinkedList;
  * @date 5/12/16.
  */
 public class Graph {
-    private  int V;
-    private int E;
-    private ArrayList<LinkedList<Integer>> adj;
+    int E;
+    ArrayList<LinkedList<Integer>> adj;
+    private int V;
 
     public Graph(int v) {
         V = v;
         this.E = 0;
         adj = new ArrayList<LinkedList<Integer>>();
         for (int i = 0; i < V; i++) {
-            adj.add(new LinkedList<Integer>()) ;
+            adj.add(new LinkedList<Integer>());
         }
     }
-
-    public void addEdge(int v, int w){
-        E++;
-        adj.get(v).add(w);
-        adj.get(w).add(v);
-    }
-
 
     public static void main(String[] args) {
         Graph graph = new Graph(10);
@@ -35,5 +28,11 @@ public class Graph {
         graph.addEdge(0, 4);
         graph.addEdge(0, 3);
 
+    }
+
+    public void addEdge(int v, int w) {
+        E++;
+        adj.get(v).add(w);
+        adj.get(w).add(v);
     }
 }
