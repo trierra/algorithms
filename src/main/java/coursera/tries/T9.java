@@ -7,18 +7,15 @@ import java.util.*;
  * algorithms.
  */
 public class T9 {
-
-    private static class Node {
-        List<String> value;
-        Node[] next = new Node[10];
-    }
-
     static Node root = new Node();
 
+    static class Node {
+        ArrayList<String> val = new ArrayList<>();
+        Node[] next = new Node[256];
+    }
 
-    static Map<String, Integer> dict = new HashMap<>();
+    static Map<Character, Character> dict = new HashMap<>();
 
-    //TODO: Complete tests
     public static void main(String[] args) {
         fillMap();
         ArrayList<String> dictionary = new ArrayList<>();
@@ -30,81 +27,76 @@ public class T9 {
         dictionary.add("table");
         dictionary.add("feel");
 
-
         for (String word : dictionary) {
-            int d = 0;
-            root = fillTree(root, word, d, word);
+             root = put(root, word, 0);
         }
 
-        int key[] = {4, 3};
-        //TODO: find key not working. Fix.
-        Node res = findKey(root, key, 0);
+        assert getWords("44").get(0).equals("hi");
+        assert getWords("43").get(0).equals("if");
+        assert getWords("43556").get(0).equals("hello");
+        assert getWords("7467").get(0).equals("shop");
+        assert getWords("72673").get(0).equals("scope");
+        assert getWords("82253").get(0).equals("table");
     }
 
-    static Node fillTree(Node root, String key, int d, String value) {
+    private static ArrayList<String> getWords(String key) {
+       return getWords(root, key, 0);
+    }
 
-        int next = dict.get(String.valueOf(key.charAt(d)));
+    private static ArrayList<String> getWords(Node root, String key, int index) {
+        if(root == null){
+            return null;
+        }
+        if(index == key.length()){
+            return root.val;
+        }
+        char c = key.charAt(index);
+        return getWords(root.next[c], key, index+1);
+    }
 
-        if (root == null) {
+
+    private static Node put(Node root, String word, int index) {
+        if(root == null){
             root = new Node();
         }
-        if (d == key.length() - 1) {
-
-            if (root.value == null) {
-                root.value = new LinkedList<>();
-                root.value.add(value);
-            } else {
-                root.value.add(value);
-            }
+        if(index == word.length()){
+            root.val.add(word);
             return root;
         }
-
-        root.next[next] = fillTree(root.next[next], key, d + 1, value);
+        int key = dict.get(word.charAt(index));
+        root.next[key] = put(root.next[key], word, index+1);
         return root;
     }
 
-    static Node findKey(Node root, int[] key, int d) {
-
-        if (d == key.length) {
-            return root;
-        }
-
-        if (root == null) {
-            return new Node();
-        }
-        root = findKey(root.next[key[d]], key, d + 1);
-
-        return root;
-    }
 
     public static void fillMap() {
-        dict.put("a", 2);
-        dict.put("b", 2);
-        dict.put("c", 2);
+        dict.put('a', '2');
+        dict.put('b', '2');
+        dict.put('c', '2');
 
-        dict.put("d", 3);
-        dict.put("e", 3);
-        dict.put("f", 3);
+        dict.put('d', '3');
+        dict.put('e', '3');
+        dict.put('f', '3');
 
-        dict.put("g", 4);
-        dict.put("h", 4);
-        dict.put("i", 4);
+        dict.put('g', '4');
+        dict.put('h', '4');
+        dict.put('i', '4');
 
-        dict.put("j", 5);
-        dict.put("k", 5);
-        dict.put("l", 5);
+        dict.put('j', '5');
+        dict.put('k', '5');
+        dict.put('l', '5');
 
-        dict.put("m", 6);
-        dict.put("n", 6);
-        dict.put("o", 6);
+        dict.put('m', '6');
+        dict.put('n', '6');
+        dict.put('o', '6');
 
-        dict.put("p", 7);
-        dict.put("r", 7);
-        dict.put("q", 7);
-        dict.put("s", 7);
+        dict.put('p', '7');
+        dict.put('r', '7');
+        dict.put('q', '7');
+        dict.put('s', '7');
 
-        dict.put("t", 8);
-        dict.put("u", 8);
-        dict.put("v", 8);
+        dict.put('t', '8');
+        dict.put('u', '8');
+        dict.put('v', '8');
     }
 }
